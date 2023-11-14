@@ -32,6 +32,13 @@ int size()
     return n;
 }
 
+void duyet(int n)
+{
+    int i;
+    for(i = n ; i >=1 ; i--)
+        printf("%d ",st[i]);
+    printf("\n");
+}
 int main()
 {
     int x;
@@ -41,7 +48,8 @@ int main()
         printf("2. Pop\n");
         printf("3. Top\n");
         printf("4. Size\n");
-        printf("5. Exit\n");
+        printf("5. Duyet\n");
+        printf("6. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &x);
         if(x == 1)
@@ -63,6 +71,8 @@ int main()
         {
             printf("Size: %d\n", size());
         }
+        else if( x == 5)
+        	duyet(n);
         else
         {
             break;
