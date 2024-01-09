@@ -15,3 +15,15 @@ int getHeight(AVL root)
         return 0;  
     return 1 + max(getHeight(root->left), getHeight(root->right));
 }
+
+AVL rightRotate(AVL root)
+{
+    AVL newRoot = root->left;
+    root->left = newRoot->right;
+    newRoot->right = root;
+    
+    root->bal = 1 + max(getHeight(root->left), getHeight(root->right));
+    newRoot->bal = 1 + max(getHeight(newRoot->left), getHeight(newRoot->right));
+
+    return newRoot;
+}
