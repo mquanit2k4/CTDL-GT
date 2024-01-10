@@ -27,3 +27,15 @@ AVL rightRotate(AVL root)
 
     return newRoot;
 }
+
+AVL leftRotate(AVL root)
+{
+    AVL newRoot = root->right;
+    root->right = newRoot->left;
+    newRoot->left = root;
+    
+    root->bal = 1 + max(getHeight(root->left), getHeight(root->right));
+    newRoot->bal = 1 + max(getHeight(newRoot->left), getHeight(newRoot->right));
+
+    return newRoot;
+}
